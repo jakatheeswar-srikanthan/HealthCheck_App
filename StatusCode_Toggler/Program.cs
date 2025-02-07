@@ -32,20 +32,26 @@ namespace StatusCode_Toggler
                 app.UseSwaggerUI();
             }
 
-            var statusCode = new ConcurrentDictionary<string, int>();
-            statusCode["current"] = 200;
+            //var statusCode = new ConcurrentDictionary<string, int>();
+            //statusCode["current"] = 200;
 
-            app.MapPost("/set-status/{code:int}", (int code) =>
-            {
-                statusCode["current"] = code;
-                return Results.Json(new { message = $"Status code set to {code}" });
-            });
+            //app.MapGet("/api/status", () => 
+            //Results.Json(new 
+            //{ 
+            //    status = statusCode["current"] 
+            //}));
 
-            app.MapGet("/", (HttpContext context) =>
-            {
-                context.Response.StatusCode = statusCode["current"];
-                return Results.Json(new { status = statusCode["current"], message = "Response status set dynamically" });
-            });
+            //app.MapPost("/api/set-status/{code:int}", (int code) =>
+            //{
+            //    statusCode["current"] = code;
+            //    return Results.Json(new { message = $"Status code set to {code}" });
+            //});
+
+            //app.MapGet("/api/check-status", (HttpContext context) =>
+            //{
+            //    context.Response.StatusCode = statusCode["current"];
+            //    return Results.Json(new { status = statusCode["current"], message = "Response status set dynamically" });
+            //});
 
             app.UseHttpsRedirection();
 
