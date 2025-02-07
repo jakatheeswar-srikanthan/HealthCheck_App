@@ -1,0 +1,6 @@
+@StatusCode_Toggler_HostAddress = http://localhost:5221
+
+GET {{StatusCode_Toggler_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
